@@ -48,17 +48,17 @@
 - ‘ & ’ 后台运行命令
 - ‘ && ’ 与-逻辑操作
 - ‘ + - * / % += -= *= /= %= ’ 算术操作符
-- << 左移一位
-- <<= 左移-赋值
-- >> 右移一位
-- >>= 右移-赋值
-- & 按位与
-- &= 按位与-赋值
-- | 按位或
-- |= 按位或-赋值
-- ~ 按位反
-- ^ 按位异或
-- ^= 按位异或-赋值
+- ' << ' 左移一位
+- ' <<= ' 左移-赋值
+- ' >> ' 右移一位
+- ' >>= ' 右移-赋值
+- ' & ' 按位与
+- ' &= ' 按位与-赋值
+- ' | ' 按位或
+- ' |= ' 按位或-赋值
+- ' ~ ' 按位反
+- ' ^ ' 按位异或
+- ' ^= ' 按位异或-赋值
 - ‘ = ’ 赋值操作 算术等号和字符串比较
 - ‘ $0 ’ 脚本名称
 - ‘ $1-$9 ’ 脚本执行时输入的第1个至第9个参数
@@ -140,22 +140,23 @@ err_msg错误消息
 ## 条件判断
 
 - 条件测试
-if []
-then
-    command
-else
-    command
-fi
+    if []
+    then
+      command
+    else
+      command
+    fi
 
-if []
-then
-    command
-elif []
-then
-    command
-else
-    command
-fi
+    if []
+    then
+     command
+    elif []
+    then
+        command
+    else
+        command
+    fi
+
 使用[[ ... ]]条件判断结构, 而不是[ ... ], 能够防止脚本中的许多逻辑错误
 
 - 算术测试用(())
@@ -186,8 +187,8 @@ fi
 -le 小于等于 if [ "$a" -le "$b" ]
 < 小于，在双引号中使用 if (("$a" < "$b"))
 <= 小于等于 if (("$a" <= "$b"))
-> 大于 if (("$a" > "$b"))
->= 大于等于 if (("$a" >= "$b"))
+' > ' 大于 if (("$a" > "$b"))
+' >= ' 大于等于 if (("$a" >= "$b"))
 -a 逻辑与
 -o 逻辑或
 
@@ -222,30 +223,30 @@ done
 
 - case
 
-case 变量 in 
-pattern1) command1;;
-pattern2) command2;;
-*) command3;;
-esac
+    case 变量 in 
+    pattern1) command1;;
+    pattern2) command2;;
+    *) command3;;
+    esac
 
 - select
   
-select 变量 in 变量列表
-do
-    命令
-done
+    select 变量 in 变量列表
+    do
+        命令
+    done
 
 ## 函数
 
-function name
-{
-    commands;
-}
+    function name
+    {
+        commands;
+    }
 
-name()
-{
-    commands;
-}
+    name()
+    {
+        commands;
+    }
 
 ## 内部命令和内建命令
 
